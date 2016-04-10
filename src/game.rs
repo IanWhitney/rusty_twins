@@ -9,12 +9,17 @@ pub struct Game {
     pub id: String,
     opponent: String,
     date: String,
-    pub attendee_id: String
+    pub attendee_id: String,
 }
 
 impl fmt::Display for Game {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        write!(f, "{}: {}: {}: {}", self.id, self.opponent, self.date, Attendee::with_id(&self.attendee_id).unwrap().name)
+        write!(f,
+               "{}: {}: {}: {}",
+               self.id,
+               self.opponent,
+               self.date,
+               Attendee::with_id(&self.attendee_id).unwrap().name)
     }
 }
 
@@ -22,7 +27,7 @@ impl Game {
     pub fn attended_by(attendee_id: String) -> Vec<Game> {
         Game::all()
             .into_iter()
-            .filter( |g| g.attendee_id == attendee_id )
+            .filter(|g| g.attendee_id == attendee_id)
             .collect::<Vec<Game>>()
     }
 
@@ -36,5 +41,3 @@ impl Game {
         games
     }
 }
-
-

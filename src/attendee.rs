@@ -26,5 +26,3 @@ impl Attendee {
             .find(|g| g.id == *attendee_id)
     }
 }
-
-

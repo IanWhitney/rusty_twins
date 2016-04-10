@@ -20,15 +20,10 @@ impl fmt::Display for Game {
 
 impl Game {
     pub fn attended_by(attendee_id: String) -> Vec<Game> {
-        let mut games: Vec<Game> = Vec::new();
-        let mut rdr = csv::Reader::from_file("./data/games.csv").unwrap();
-        for game in rdr.decode() {
-            let game: Game = game.unwrap();
-            if game.attendee_id == attendee_id {
-                games.push(game);
-            }
-        }
-        games
+        Game::all()
+            .into_iter()
+            .filter( |g| g.attendee_id == attendee_id )
+            .collect::<Vec<Game>>()
     }
 
     pub fn all() -> Vec<Game> {

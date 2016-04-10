@@ -1,0 +1,9 @@
+[package]
+name = "rusty_twins"
+version = "0.1.0"
+authors = ["Ian Whitney <whit0694@umn.edu>"]
+
+[dependencies]
+getopts = "0.2"
+csv = "0.14.4"
+rustc-serialize = "0.3"
